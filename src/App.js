@@ -12,8 +12,6 @@ function App() {
         <a
           className="App-link"
           href="https://checkout-dev2.postpay.io"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           Learn React
         </a>
