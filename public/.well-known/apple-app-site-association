@@ -1,0 +1,17 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "GDHKUJP9BB.com.postpay", 
+                "paths": ["/welcomeuqudo/*"],
+                "appIDs": ["GDHKUJP9BB.com.postpay", "GDHKUJP9BB.com.postpay.dev"],
+                "components": [
+                    {
+                        "/": "/welcomeuqudo/*"
+                    }
+                ]   
+            }
+        ]
+    }
+}
