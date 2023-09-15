@@ -7,8 +7,9 @@ useEffect(() => {
   const parentUrl = currentUrl.searchParams.get('parentUrl');
 
   if (parentUrl) {
-    parentUrl.searchParams.append('appNotInstalled', 'true');
-    window.location.replace(parentUrl);
+    const modifiedParentUrl = new URL(parentUrl);
+    modifiedParentUrl.searchParams.append('appNotInstalled', 'true');
+    window.location.replace(modifiedParentUrl.toString());
   } else {
     const referrer = document.referrer;
     if (referrer) {
@@ -18,7 +19,6 @@ useEffect(() => {
     }
   }
 }, []);
-
 
 
 
