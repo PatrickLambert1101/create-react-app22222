@@ -2,22 +2,29 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 function App() {
-  useEffect(() => {
-    const referrer = document.referrer;
-    const currentUrl = window.location.href;
+useEffect(() => {
+  const currentUrl = new URL(window.location.href);
+  const parentUrl = currentUrl.searchParams.get('parentUrl');
   
-    if (referrer && referrer !== currentUrl) {
+  if (parentUrl) {
+    window.location.replace(parentUrl);
+  } else {
+    const referrer = document.referrer;
+
+    if (referrer && referrer !== currentUrl.toString()) {
       const referrerUrl = new URL(referrer);
       referrerUrl.searchParams.append('appNotInstalled', 'true');
       window.location.replace(referrerUrl.toString());
     }
-  }, []);
+  }
+}, []);
+
 
   return (
     <div className="App">
       <header className="App-header">
         <div className="loader"></div>
-        <p>Please wait, initializing...</p>
+        <p>Please wait, init...</p>
       </header>
       <style>{`
         .loader {
