@@ -4,7 +4,10 @@ import './App.css';
 function App() {
 useEffect(() => {
   const currentUrl = new URL(window.location.href);
+        console.log('currentUrl', currentUrl);
+
   const parentUrl = currentUrl.searchParams.get('parentUrl');
+        console.log('parentUrl', parentUrl);
 
   const referrer = document.referrer;
   if (referrer) {
