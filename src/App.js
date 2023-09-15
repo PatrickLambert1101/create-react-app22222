@@ -3,20 +3,15 @@ import './App.css';
 
 function App() {
 useEffect(() => {
-  const currentUrl = new URL(window.location.href);
-        console.log('currentUrl', currentUrl);
+  const referrer = document.referrer;
 
-  const parentUrl = currentUrl.searchParams.get('parentUrl');
-        console.log('parentUrl', parentUrl);
-
-  if (parentUrl) {
-    window.location.replace(parentUrl);
-  } else {
-    const referrer = document.referrer;
-
-    if (referrer && referrer !== currentUrl.toString()) {
-      const referrerUrl = new URL(referrer);
-      console.log('referrerUrl', referrerUrl);
+  if (referrer) {
+    const referrerUrl = new URL(referrer);
+    const parentUrl = referrerUrl.searchParams.get('parentUrl');
+    
+    if (parentUrl) {
+      window.location.replace(parentUrl);
+    } else {
       referrerUrl.searchParams.append('appNotInstalled', 'true');
       window.location.replace(referrerUrl.toString());
     }
@@ -24,11 +19,12 @@ useEffect(() => {
 }, []);
 
 
+
   return (
     <div className="App">
       <header className="App-header">
         <div className="loader"></div>
-        <p>Please wait, asdf...</p>
+        <p>Please wait, 123...</p>
       </header>
       <style>{`
         .loader {
