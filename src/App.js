@@ -4,8 +4,11 @@ import './App.css';
 function App() {
 useEffect(() => {
   const currentUrl = new URL(window.location.href);
+        console.log('currentUrl', currentUrl);
+
   const parentUrl = currentUrl.searchParams.get('parentUrl');
-  
+        console.log('parentUrl', parentUrl);
+
   if (parentUrl) {
     window.location.replace(parentUrl);
   } else {
@@ -13,6 +16,7 @@ useEffect(() => {
 
     if (referrer && referrer !== currentUrl.toString()) {
       const referrerUrl = new URL(referrer);
+      console.log('referrerUrl', referrerUrl);
       referrerUrl.searchParams.append('appNotInstalled', 'true');
       window.location.replace(referrerUrl.toString());
     }
@@ -24,7 +28,7 @@ useEffect(() => {
     <div className="App">
       <header className="App-header">
         <div className="loader"></div>
-        <p>Please wait, init...</p>
+        <p>Please wait, asdf...</p>
       </header>
       <style>{`
         .loader {
