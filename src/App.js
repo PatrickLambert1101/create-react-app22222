@@ -7,18 +7,20 @@ useEffect(() => {
 
   if (referrer) {
     const referrerUrl = new URL(referrer);
-    const parentUrl = referrerUrl.searchParams.get('parentUrl');
-          console.log('referrerUrl', referrerUrl);
-      console.log('parentUrl', parentUrl);
 
-    if (parentUrl) {
-      window.location.replace(parentUrl);
-    } else {
-      referrerUrl.searchParams.append('appNotInstalled', 'true');
-      window.location.replace(referrerUrl.toString());
+    console.log('Full URL:', referrerUrl.toString());
+    console.log('Protocol:', referrerUrl.protocol);
+    console.log('Hostname:', referrerUrl.hostname);
+    console.log('Pathname:', referrerUrl.pathname);
+    console.log('Search:', referrerUrl.search);
+    console.log('Hash:', referrerUrl.hash);
+
+    for (const [key, value] of referrerUrl.searchParams.entries()) {
+      console.log(`Param ${key}: ${value}`);
     }
   }
 }, []);
+
 
 
 
