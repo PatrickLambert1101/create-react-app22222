@@ -3,37 +3,33 @@ import './App.css';
 
 function App() {
 useEffect(() => {
+  const currentUrl = new URL(window.location.href);
+  const parentUrl = currentUrl.searchParams.get('parentUrl');
+
   const referrer = document.referrer;
-  
   if (referrer) {
     const referrerUrl = new URL(referrer);
+    referrerUrl.searchParams.append('appNotInstalled', 'true');
 
-    // Logging URL components
-    console.log('Full URL:', referrerUrl.toString());
+    // Logging
+    console.log('Full Referrer URL:', referrerUrl.toString());
     console.log('Protocol:', referrerUrl.protocol);
     console.log('Hostname:', referrerUrl.hostname);
     console.log('Pathname:', referrerUrl.pathname);
     console.log('Search:', referrerUrl.search);
     console.log('Hash:', referrerUrl.hash);
-
-    // Logging search parameters
+    
     for (const [key, value] of referrerUrl.searchParams.entries()) {
       console.log(`Param ${key}: ${value}`);
     }
+  }
 
-    const parentUrl = referrerUrl.searchParams.get('parentUrl');
-    
-    // Always append 'appNotInstalled=true' to the referrer URL
-    referrerUrl.searchParams.append('appNotInstalled', 'true');
-
-    if (parentUrl) {
-      window.location.replace(parentUrl);
-    } else {
-      window.location.replace(referrerUrl.toString());
-    }
+  if (parentUrl) {
+    window.location.replace(parentUrl);
+  } else if (referrer) {
+    window.location.replace(referrer);
   }
 }, []);
-
 
 
 
