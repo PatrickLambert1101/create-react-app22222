@@ -8,7 +8,9 @@ useEffect(() => {
   if (referrer) {
     const referrerUrl = new URL(referrer);
     const parentUrl = referrerUrl.searchParams.get('parentUrl');
-    
+          console.log('referrerUrl', referrerUrl);
+      console.log('parentUrl', parentUrl);
+
     if (parentUrl) {
       window.location.replace(parentUrl);
     } else {
