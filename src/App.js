@@ -3,11 +3,12 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    const url = new URL(window.location.href);
     const referrer = document.referrer;
-    if (referrer) {
+    const currentUrl = window.location.href;
+  
+    if (referrer && referrer !== currentUrl) {
       const referrerUrl = new URL(referrer);
-      referrerUrl.pathname = '/idvstart';
+      referrerUrl.searchParams.append('appNotInstalled', 'true');
       window.location.replace(referrerUrl.toString());
     }
   }, []);
