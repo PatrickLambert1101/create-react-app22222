@@ -1,8 +1,17 @@
-[{
+[ {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.postpay",
+      "sha256_cert_fingerprints":
+        ["B5:EF:C6:70:B8:D5:D7:56:74:29:3F:AA:33:88:5A:6F:95:D0:E0:79:7C:D6:75:57:30:EC:E2:1B:FB:5A:96:10"]
+    }
+  },
+{
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "android_app",
     "package_name": "com.postpay.dev",
-    "sha256_cert_fingerprints": ["B5:EF:C6:70:B8:D5:D7:56:74:29:3F:AA:33:88:5A:6F:95:D0:E0:79:7C:D6:75:57:30:EC:E2:1B:FB:5A:96:10"]
+    "sha256_cert_fingerprints": ["E0:A6:A7:09:3D:8C:98:0C:0D:3E:6B:05:B5:57:71:AD:F5:2F:9C:38:F6:8A:34:65:5B:7C:3B:31:73:51:22:14"]
   }
 }]
