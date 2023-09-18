@@ -2,7 +2,7 @@
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "android_app",
-    "package_name": "com.postpay",
+    "package_name": "com.postpay.dev",
     "sha256_cert_fingerprints": ["B5:EF:C6:70:B8:D5:D7:56:74:29:3F:AA:33:88:5A:6F:95:D0:E0:79:7C:D6:75:57:30:EC:E2:1B:FB:5A:96:10"]
   }
 }]
